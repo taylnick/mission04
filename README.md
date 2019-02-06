@@ -26,7 +26,6 @@ When you have completed the assignment (all tests pass) or it is reaching midnig
 2. Pushed your changes to GitHub
 3. Tagged your repo as "COMPLETE"
 4. Pushed the "COMPLETE" tag to GitHub
-5. Submitted your repository URL to Moodle in the Mission 01 submission section.
 
 ## Grading -- 70 Points
 * DequeStackMerge - 3 Points
