@@ -12,7 +12,7 @@ public class LinkedDeque<E> implements Deque<E> {
      * or null if the deque is empty.
      */
     public E peekLast() {
-        return dll.get(dll.size -1);
+        return dll.get(dll.size-1);
     }
 
     /**
