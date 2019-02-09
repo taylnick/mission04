@@ -102,9 +102,8 @@ public class LinkedDeque<E> implements Deque<E> {
         if(this.isEmpty()) return;
         if(into == null) return;
         while(this.size() > 0){
-            into.offer(this.poll());
+            into.offer(this.pollLast());
         }
-        into.reverse();
     }
 
     /**
@@ -112,10 +111,11 @@ public class LinkedDeque<E> implements Deque<E> {
      */
     @Override
     public void reverse() {
-        int counter = 0;
-        while(counter < this.size()) {
-            this.offerFirst(this.pollLast());
-            counter++;
+        LinkedDeque<E> tempDeque = new LinkedDeque<>();
+        this.transfer(tempDeque);
+
+        while(!tempDeque.isEmpty()){
+            this.offer(tempDeque.poll());
         }
     }
 
@@ -132,8 +132,8 @@ public class LinkedDeque<E> implements Deque<E> {
     @Override
     public void merge(Queue<E> from) {
         if(from == null) return;
-        LinkedDeque tempDeque = new LinkedDeque();
-        DoublyLinkedList copydll = new DoublyLinkedList();
+        LinkedDeque<E> tempDeque = new LinkedDeque<>();
+        DoublyLinkedList<E> copydll = new DoublyLinkedList<>();
         from.transfer(tempDeque);
         for(int i = 0; i < tempDeque.size(); i++){
             copydll.addLast(tempDeque.dll.get(i));
@@ -141,7 +141,7 @@ public class LinkedDeque<E> implements Deque<E> {
         tempDeque.transfer(from);
 
         while(!copydll.isEmpty()){
-            this.offer((E) copydll.removeFirst());
+            this.offer(copydll.removeLast());
         }
     }
 }

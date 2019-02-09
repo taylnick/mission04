@@ -5,7 +5,8 @@ import edu.isu.cs.cs3308.structures.RedBlueDoubleStack;
 
 public class RedBlueDoubleStackImpl<E> implements RedBlueDoubleStack<E> {
 
-    private LinkedDeque<E> deque = new LinkedDeque();
+    private LinkedDeque<E> red = new LinkedDeque();
+    private LinkedDeque<E> blue = new LinkedDeque();
 
     /**
      * Adds the element to the top of the Red Stack, unless the element is null.
@@ -14,7 +15,7 @@ public class RedBlueDoubleStackImpl<E> implements RedBlueDoubleStack<E> {
      */
     @Override
     public void pushRed(E element) {
-        deque.offerFirst(element);
+        red.offerFirst(element);
     }
 
     /**
@@ -25,7 +26,7 @@ public class RedBlueDoubleStackImpl<E> implements RedBlueDoubleStack<E> {
      */
     @Override
     public void pushBlue(E element) {
-        deque.offer(element);
+        blue.offer(element);
     }
 
     /**
@@ -37,7 +38,7 @@ public class RedBlueDoubleStackImpl<E> implements RedBlueDoubleStack<E> {
      */
     @Override
     public E popRed() {
-        return deque.poll();
+        return red.poll();
     }
 
     /**
@@ -49,7 +50,7 @@ public class RedBlueDoubleStackImpl<E> implements RedBlueDoubleStack<E> {
      */
     @Override
     public E popBlue() {
-        return deque.pollLast();
+        return blue.pollLast();
     }
 
     /**
@@ -60,7 +61,7 @@ public class RedBlueDoubleStackImpl<E> implements RedBlueDoubleStack<E> {
      */
     @Override
     public E peekRed() {
-        return deque.peek();
+        return red.peek();
     }
 
     /**
@@ -71,7 +72,7 @@ public class RedBlueDoubleStackImpl<E> implements RedBlueDoubleStack<E> {
      */
     @Override
     public E peekBlue() {
-        return deque.peekLast();
+        return blue.peekLast();
     }
 
     /**
@@ -79,7 +80,7 @@ public class RedBlueDoubleStackImpl<E> implements RedBlueDoubleStack<E> {
      */
     @Override
     public int sizeBlue() {
-        return deque.size();
+        return blue.size();
     }
 
     /**
@@ -87,7 +88,7 @@ public class RedBlueDoubleStackImpl<E> implements RedBlueDoubleStack<E> {
      */
     @Override
     public int sizeRed() {
-        return deque.size();
+        return red.size();
     }
 
     /**
@@ -95,7 +96,7 @@ public class RedBlueDoubleStackImpl<E> implements RedBlueDoubleStack<E> {
      */
     @Override
     public boolean isBlueEmpty() {
-        return deque.isEmpty();
+        return blue.isEmpty();
     }
 
     /**
@@ -103,6 +104,6 @@ public class RedBlueDoubleStackImpl<E> implements RedBlueDoubleStack<E> {
      */
     @Override
     public boolean isRedEmpty() {
-        return deque.isEmpty();
+        return red.isEmpty();
     }
 }

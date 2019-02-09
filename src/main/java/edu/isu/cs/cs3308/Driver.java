@@ -35,6 +35,7 @@ public class Driver {
 
         System.out.println("\n");
         System.out.println("Reversed:");
+        deque.reverse();
         deque.printQueue();
 
         System.out.println("\n");
@@ -46,6 +47,7 @@ public class Driver {
         System.out.println("\n");
         System.out.println("Merged Back:");
         deque.merge(temp);
+        deque.printQueue();
 
         System.out.println("\n");
         Stack<Integer> stack1 = new LinkedStack<>();
